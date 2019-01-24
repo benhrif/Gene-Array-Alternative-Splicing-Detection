@@ -1,0 +1,29 @@
+<tool id="ARH" name="ARH">
+
+      <description> Predicting Splice Variants from Genome-wide Data with Modified Entropy</description>
+      <command interpreter="Rscript">mainARH.R $ExpressionSet $DesignMatrix $__tool_directory__  $ARHResult $ARHplot</command>
+      <inputs>
+         <param  name="ExpressionSet" type="data" label="Rdata source"/> 
+         <param  name="DesignMatrix" type="data" format="txt" label="DesignMatrix" />
+      </inputs>
+      <outputs>
+       <data format="csv" name="ARHResult"   label="ARHResult.csv"   from_work_dir="ARHResult.csv" /> 
+       <data format="pdf"   name="ARHplot" label="ARHPlots.pdf"  from_work_dir="ARHPlots.pdf" />  -->
+      </outputs>
+      <help>
+**What it does**
+
+ARH method computes the splicing deviation between conditions for every exon and transforms it into a probability for differential splicing. A gene-wise entropy computed from the probabilities helps to quantify differential splicing.
+
+
+**Output** 
+
+            1. List of spliced genes ordered by ARH.
+            2. Plot containing curves, which represent the exons expressions of a gene through different experimental conditions, and also, the probability of each exon to be alternatively spliced.
+
+**References** 
+
+A. Rasche and R. Herwig. ARH: predicting splice variants from genome-wide data with modified entropy. Bioinformatics, 26(1):84, 2010.
+
+      </help>
+</tool>
